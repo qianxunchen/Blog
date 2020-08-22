@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../static/images/齿轮.png" type="image/x-icon"/>
+    <title>wuyi的博客</title>
+    <style>
+        body{
+            margin:0px;
+        }
+        .editor{
+            margin-left:25%;
+            margin-right:25%;
+            width:960px;
+            height:auto;
+         }
+        .dd_div{
+            width:1040px;
+            height:40px;
+            margin:0 auto;
+            border-bottom: 1px solid #F5F5F5;
+         }
+		.daohangtiao_div{
+		    width:1040px;
+			height: 40px;
+			margin:0 auto;
+			background:#fff;
+			position:fixed;/*固定作用*/
+            z-index:9999; /* 让导航栏浮在网页的高层位置，遇到flash和图片时候也能始终保持最外层 */
+		}
+	    .daohangtiao{
+            display: inline-block;
+            font-size:18px;
+            color:#000000;
+            margin-left:20px;
+            margin-right:20px;
+            margin-top:4px;
+            text-decoration:none;
+        }
+        .logo_span{
+            display: inline-block;
+            font-size:24px;
+            color:#000000;
+            margin-left:100px;
+            margin-right:60px;
+            margin-top:4px;
+            text-decoration:none;
+        }
+        .blog_item{
+               margin-top:40px;
+               margin-right:15%;
+        }
+        .blog_title{
+            text-decoration:none;
+            color:#000000;
+            font-size:20px;
+        }
+        .a_title{
+            text-decoration:none;
+            color:#000000;
+        }
+        .a_page{
+            text-decoration:none;
+            color:#808080;
+            margin-left:15px;
+            margin-right:15px;
+         }
+        .intro{
+            color:#808080;
+            font-size:12px;
+            text-decoration:none;
+        }
+        .read{
+            color:#808080;
+            font-size:18px;
+            text-decoration:none;
+        }
+        .blog_tag{
+            text-decoration:none;
+            color:#808080;
+            font-size:12px;
+            background:#F6F6F6;
+            border-radius:5px;/*圆角*/
+        }
+        p ,center{
+            color:#808080;
+        }
+        .blog_div{
+            width:780px;
+            margin:0 auto;
+        }
+        .footer_div{
+            clear: both;
+            width:auto;
+            margin:10px;
+            font:center;
+            border-top: 1px solid #DCDCDC;
+         }
+        .blog_show{
+            width:960px;
+            height:auto;
+            margin:0 auto;
+            margin-top:10px;
+        }
+        .blog_list{
+            width:780px;
+            height:auto;
+            margin:0 auto;
+            float:left;
+        }
+        .asider{
+            width:180px;
+            height:100%;
+            margin:0 auto;
+            float:right;
+        }
+        .img_me{
+            width:180px;
+            height:180px;
+            border-radius:15px;
+        }
+        .page_blog{
+            width:100%;
+            height:20px;
+            margin: 10px 0 30px;
+            text-align: center!important;
+            font-size:18px;
+            clear: both;/*固定在div底部*/
+        }
+        .page_p{
+            width:100%;
+            height:20px;
+        }
+        .li_tag{
+            display:inline;
+            list-style-type:none;
+            white-space:nowrap;
+         }
+         .ul_tag{
+             margin-left: -5px;
+             list-style: none;
+             padding-left: 0;
+         }
+          .hrs{
+              border-top: 1px solid #DCDCDC;
+              height:250px;
+          }
+          .title{
+                margin-bottom: 1rem;
+                line-height: 2rem;
+                text-align:center;
+          }
+          h1,h2,h3,h4,h5,h6{
+                    margin: .5rem 0;
+                    line-height: 1.5rem;
+                    font-weight: 500;
+           }
+          .blog_other{
+                text-align:center;
+                color:#808080;
+                font-size:14px;
+           }
+           .other{
+                text-decoration:none;
+                color:#808080;
+                font-size:15px;
+           }
+           .other_tag{
+                text-decoration:none;
+                color:#808080;
+                font-size:15px;
+                background:#F6F6F6;
+                border-radius:5px;/*圆角*/
+           }
+           .author{
+                height: 22px;
+                width: 22px;
+                transform: translateY(-1px);
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 100%;
+           }
+           .tags_div{
+                max-width: 880px;
+                border: none;
+                box-shadow: none;
+                margin: auto;
+                padding: 10px 50px;
+           }
+           .li_tags{
+                display:inline;
+                list-style-type:none;
+                white-space:nowrap;
+                background:#F6F6F6;
+                padding: 5px 10px;
+                margin-left:10px;
+                line-height:40px;/*行间距*/
+                border-radius:5px;/*圆角*/
+            }
+           .tag_name{
+                color:#808080;
+                font-size:18px;
+                text-decoration:none;
+           }
+           .tags_count{
+                color:#4169E1;
+           }
+           .search_div{
+                width:1040px;
+                height:480px;
+           }
+           .search{
+                width:720px;
+                height:35px;
+                margin-left:50%;
+                margin-right:50%;
+                margin-top:20%;
+                font-size:18px;
+           }
+           .comment{
+                position: relative;
+                border: 1px solid #CFD8DC;
+                border-radius: 0;
+                list-style-type:none;/*去掉li的点*/
+           }
+            .add_comment{
+                    width:100%;
+                    height:140px;
+                    margin-top:30px;
+            }
+            .input_comment{
+                    width:100%;
+                    height:80px;
+            }
+            .comment_{
+                    width:100px;
+                    float:right;
+            }
+            .comment_like{
+                    float:left;
+                    color:#808080;
+                    font-size:14px;
+                    text-decoration:none;
+            }
+            .comment_reply{
+                    float:right;
+                    color:#808080;
+                    font-size:14px;
+                    text-decoration:none;
+            }
+    </style>
+</head>
+<body>
+<!--导航条-->
+    <div class="dd_div">
+        <div class="daohangtiao_div">
+            <a class="logo_span" href="{{url_for('blogapi.homepages')}}">wuyi a blog</a>
+            <a class="daohangtiao" href="{{url_for('blogapi.homepages')}}">首 页</a>
+            <a class="daohangtiao" href="{{url_for('tagapi.Tags')}}">标签</a>
+            <a class="daohangtiao" href="#">归档</a>
+            <a class="daohangtiao" href="{{url_for('ser.search')}}">搜索</a>
+            <a class="daohangtiao" href="#">关于</a>
+        </div>
+    </div>
+    <!--整个博客展示界面，包括分页导航条-->
+    <br>
+    {% block base %}
+
+    {% endblock %}
+    <div class="footer_div">
+        <br>
+        <center>首页 | Github | @wuyi </center>
+    </div>
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+    <!-- 发送 ,增加功能的js-->
+    <script type="text/javascript">
+            function read(obj) {
+            var id = $(obj).attr("id");
+            <!--console.log(id)-->
+            $.ajax({
+                url:"/blog",
+                type:"get",
+                dataType:"text",
+                data:{ id:id },
+                success:function (data){
+                    alert("即将跳转新页面")
+                    window.location.href = "blogs?id="+id
+                    <!--window.location.reload()-->
+                }
+
+            })
+        }
+        <!--function read(obj) {-->
+            <!--var id = $(obj).attr("id");-->
+            <!--&lt;!&ndash;console.log(id)&ndash;&gt;-->
+            <!--$.ajax({-->
+                <!--url:"/blogs",-->
+                <!--type:"get",-->
+                <!--dataType:"text",-->
+                <!--data:{ id:id },-->
+                <!--success:function (data){-->
+                    <!--alert(data)-->
+                    <!--&lt;!&ndash;window.location = "/blogs"&ndash;&gt;-->
+                    <!--window.location.reload()-->
+                <!--}-->
+
+            <!--})-->
+        <!--}-->
+
+        <!--$(".blog_tag").click(function () {-->
+            <!--var tag = $(this).html();-->
+            <!--$.ajax({-->
+                <!--url:"/tag",-->
+                <!--type:"get",-->
+                <!--dataType:"text",-->
+                <!--data:{ tag:tag },-->
+                <!--success:function (data){-->
+                    <!--window.location = "/tags"-->
+                <!--}-->
+
+            <!--})-->
+        <!--})-->
+
+        function tags(obj) {
+            var name = $(obj).attr("name");
+            console.log(name)
+            $.ajax({
+                url:"/tag",
+                type:"get",
+                dataType:"text",
+                data:{ name:name },
+                success:function (data){
+                    window.location.href = "/tags?name="+name
+                }
+
+            })
+        }
+
+        function comments() {
+            var comment = $("#comment").val();
+            var title = $("#titles").val();
+            console.log(comment)
+            console.log(title)
+            $.ajax({
+                url:"/comment",
+                type:"post",
+                dataType:"json",
+                contentType:'application/json; charset=UTF-8',
+                data:JSON.stringify({
+                        'comment':comment,
+                        'id':title
+                 }),
+                success:function (data){
+                    if(data.msg=="ee")
+                        window.location = "/login_uu"
+                     else
+                        <!--alert(data.msg)-->
+                        window.location.reload()
+                }
+
+            })
+        }
+
+        <!--点赞-->
+        function like(obj) {
+                var id = $(obj).attr("id");
+                console.log(id)
+                $.ajax({
+                    url:"/comment_like",
+                    type:"get",
+                    dataType:"json",
+                    data:{ id:id },
+                    success:function (data){
+                        if(data.msg=='error')
+                            window.location = "/login_uu"
+                        else
+                            window.location.reload()
+
+                    }
+                })
+        }
+
+        <!--回复其他人的评论-->
+        function comment_reply(obj) {
+                var bid = $(obj).attr("id");
+                var uname = $(obj).attr("name");
+                var comment=prompt("回复"+uname+"的评论：")
+                console.log(bid)
+                console.log(uname)
+                console.log(comment)
+                $.ajax({
+                    url:"/comments_reply",
+                    type:"post",
+                    dataType:"json",
+                    contentType:'application/json; charset=UTF-8',
+                    data:JSON.stringify({
+                           'bid':bid,
+                           'comment':uname+comment
+                     }),
+                    success:function (data){
+                        if(data.msg=='ok')
+                            window.location.reload()
+                        else
+                            window.location = "/login_uu"
+                    }
+                })
+        }
+
+        </script>
+        {#    使用jinjia导入两个js#}
+        <script src="{{ url_for('static', filename='tinymce/js/tinymce/tinymce.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/tinymce_setup.js') }}"></script>
+</body>
+</html>

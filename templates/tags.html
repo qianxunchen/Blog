@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+    {% block base %}
+        <div class="blog_div">
+            <article class="tags_div">
+                <div>
+                    <ul class=" ul_tag">
+                        {% for tag in tags %}
+                        <li class="li_tags">
+                            <a class="tag_name" name="{{ tag.tagname }}" href="javascript:void(0);" onclick="tags(this)">{{ tag.tagname }}</a>
+                            <span class="tags_count">{{ tag.tagnumber }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </article>
+        </div>
+        <br>
+    {% endblock %}

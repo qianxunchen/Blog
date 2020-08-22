@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+    {% block base %}
+    <!--整个博客展示界面，包括分页导航条-->
+    <div class="blog_div">
+        <!--博文展示列表-->
+        <div class="blog_list">
+            {% for goods in tags.items %}
+                <!--单个博文具体信息-->
+                    <article class="blog_item">
+                        <a class="blog_title" id="{{ goods.id }}" href="javascript:void(0);" onclick="read(this)">{{ goods.title }}</a>
+                        <br>
+                        <span>
+                            <a class="intro"> {{ goods.Time }}</a>
+                            <a class="intro">/</a>
+                            <a class="blog_tag" name="{{ goods.tag }}" href="javascript:void(0);" onclick="tags(this)">{{ goods.tag }}</a>
+                        </span>
+                        <p class="intro">{{ goods.intro }}</p>
+                        <a class="read" id="{{ goods.id}}" href="javascript:void(0);" onclick="read(this)">阅读全文></a>
+                    </article>
+            {% endfor %}
+        </div>
+        <br>
+    </div>
+    {% endblock %}

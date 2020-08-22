@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+    {% block base %}
+    <div class="blog_div">
+        <div class="blog_div">
+            <h2 class="title" id="title">{{ data.title }}</h2>
+        </div>
+        <div class="blog_other">
+            <span>
+                <a class="other">
+                    <img class="author" src="../static/images/20200729_004521.jpg">
+                    <a class="other" href="{{url_for('aboutapi.about')}}">wuyi</a>
+                </a>
+                <a class="other">/</a>
+                <a class="other_tag" name="{{ data.tag }}" href="javascript:void(0);" onclick="tags(this)">{{ data.tag }}</a>
+                <a class="other">/</a>
+                <a class="other">{{ data.Time }}</a>
+                <a class="other">/</a>
+                <a class="other">阅读数  {{ data.read }}</a>
+            </span>
+        </div>
+        <br>
+        <div class="blog_div">
+            {{ body|safe }}
+        </div>
+        <div class="blog_div">
+            <div class="comment_div">
+                <ul class="comment_list">
+                    {% for comment in comments %}
+                    <li class="comment">
+                        <div class="comment_main">
+                            <p>{{ comment.uname}}  {{ comment.time }}</p>
+                                <p>{{ comment.body }}</p>
+                        </div>
+                        <div class="comment_">
+                            <a class="comment_like" href="javascript:void(0);" onclick="like(this)" id="{{ comment.id }}">点赞({{ comment.like }})</a>
+                            <a class="comment_reply" href="javascript:void(0);"onclick="comment_reply(this)" name="{{ comment.uname }}" id="{{ comment.bid}}">回复</a>
+                        </div>
+                    </li>
+                    <br>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="add_comment">
+                <!--<form action="comment" method="post">-->
+                    <input type="hidden" id="titles" name="titles" value="{{ data.id }}">
+                    <textarea class="input_comment" id="comment" name="comment" placeholder="评价一下"></textarea>
+                    <input type="button" value="评论" id="pl" class="pl" onclick="comments()">
+                <!--</form>-->
+            </div>
+            <br>
+        </div>
+    </div>
+    <br>
+    {% endblock %}

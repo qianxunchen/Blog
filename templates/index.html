@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+    {% block base %}
+    <!--整个博客列表页面，包括侧边栏-->
+    <div class="blog_show">
+        <div class="blog_list">
+            <div class="blog_div">
+        <!--博文展示列表-->
+                <div class="blog_list">
+                    {% for goods in pagination.items %}
+                        <!--单个博文具体信息-->
+                    <article class="blog_item">
+                        <a class="blog_title" id="{{ goods.id }}" href="javascript:void(0);" onclick="read(this)">{{ goods.title }}</a>
+                        <br>
+                        <span>
+                            <a class="intro"> {{ goods.Time }}</a>
+                            <a class="intro">/</a>
+                            <a class="blog_tag" name="{{ goods.tag }}" href="javascript:void(0);" onclick="tags(this)">{{ goods.tag }}</a>
+                        </span>
+                        <p class="intro">{{ goods.intro }}</p>
+                        <a class="read" id="{{ goods.id}}" href="javascript:void(0);" onclick="read(this)">阅读全文></a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <aside class="asider">
+            <p>
+                <h5>关于我</h5>
+                <a href="{{url_for('aboutapi.about')}}">
+                    <img class="img_me" src="../static/images/20200729_004521.jpg">
+                </a>
+
+            </p>
+            <article class="hrs">
+                <h5>标签云</h5>
+                <ul class=" ul_tag">
+                    {% for tag in tags %}
+                    <li class="li_tag">
+                        <a class="intro" name="{{ tag.tagname }}" href="javascript:void(0);" onclick="tags(this)">{{ tag.tagname }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </article>
+            <p>
+                <h5>相关链接</h5>
+                <p>
+                    <a class="intro" href="#">项目Github地址</a><br>
+                    <a class="intro" href="#">Google地址</a>
+                </p>
+            </p>
+        </aside>
+                {% import 'pages.html' as pg %}
+            {% if pagination %}
+                <div class="page_blog">
+                    {{ pg.my_paginate(pagination,'blogapi.homepages')}}
+                </div>
+            {% endif %}
+    </div>
+    {% endblock %}

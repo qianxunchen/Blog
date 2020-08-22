@@ -1,0 +1,27 @@
+{% extends 'admin_base.html' %}
+    {% block base_admin %}
+        <div>
+            <table>
+                <tr>
+                    <th>用户</th>
+                    <th>文章</th>
+                    <th>评论</th>
+                    <th class="ths">操作</th>
+                    <th class="ths">操作</th>
+                </tr>
+                {% for comment in data %}
+                <tr>
+                    <th>{{ comment.uname }}</th>
+                    <th>{{ comment.btitle }}</th>
+                    <th>{{ comment.body }}</th>
+                    <th class="ths">
+                        <a class="ths" id="{{ comment.id }}" href="javascript:void(0);" onclick="comment_delete(this)">删除</a>
+                    </th>
+                    <th class="ths">
+                        <a class="ths" bid="{{ comment.bid}}" name="{{ comment.uname}}" title="{{ comment.btitle }}" href="javascript:void(0);" onclick="comment_reply(this)">回复</a>
+                    </th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock %}

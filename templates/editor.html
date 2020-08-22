@@ -1,0 +1,14 @@
+{% extends 'admin_base.html' %}
+    {% block base_admin %}
+            <div class="editor">
+         <form  method="post" action="/admin">
+             标题：<input name="title" id="title">
+              标签：<input name="tag" id="tag">
+             <br>
+             <br>
+             简介：<textarea name="intro" id="intro"></textarea>
+            <input  name="content" id="content">
+             <button type="submit">提交</button>
+        </form>
+    </div>
+{% endblock %}
